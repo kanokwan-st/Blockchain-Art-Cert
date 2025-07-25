@@ -1,0 +1,26 @@
+{
+  "name": "blockchain-art-cert",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanokwan-st/Blockchain-Art-Cert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanokwan-st/Blockchain-Art-Cert/issues"
+  },
+  "homepage": "https://github.com/kanokwan-st/Blockchain-Art-Cert#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^11.1.0"
+  }
+}
