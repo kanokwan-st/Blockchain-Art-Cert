@@ -41,3 +41,5 @@ class Blockchain {
         this.chain.push(newBlock);
     }
 }
+
+export { Blockchain };
