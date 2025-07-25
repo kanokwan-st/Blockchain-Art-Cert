@@ -4,8 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain Art Cert</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Blockchain Art Certificate</h1>
+    <header>
+        <img src="./asset/blockchain.png">
+        <h1>Blockchain Art Certificate</h1>
+    </header>
+    <div class="container">
+        <!-- Build certificate -->
+        <section class="block">
+            <h2>Build your art certificate</h2>
+            <div class="box">
+                <div class="input-box">
+                    <label for="title">Title</label>
+                    <input id="title" type="text" required placeholder="Put title of the art work...">
+                </div>
+                <div class="input-box">
+                    <label for="artist">Artist</label>
+                    <input id="artist" type="text" required placeholder="Put artist name...">
+                </div>
+                <div class="input-box">
+                    <label for="owner">Owner</label>
+                    <input id="owner" type="text" required placeholder="Put owner name...">
+                </div>
+                <!-- button -->
+                <button id="createCertBtn" class="button">Create Certificate</button>
+            </div>
+        </section>
+
+        <!-- Transfer owner -->
+        <section class="block">
+            <h2>Transfer owner</h2>
+            <div class="box">
+                <div class="input-box">
+                    <label for="artId">Art Id</label>
+                    <input id="artId" type="text" required placeholder="Put Art Id of art work...">
+                </div>
+                <div class="input-box">
+                    <label for="previousOwner">Previous Owner</label>
+                    <input id="previousOwner" type="text" required placeholder="Put previous owner name...">
+                </div>
+                <div class="input-box">
+                    <label for="newOwner">New Owner</label>
+                    <input id="newOwner" type="text" required placeholder="Put new owner name...">
+                </div>
+                <!-- button -->
+                <button id="transferBtn" class="button">Transfer Owner</button>
+            </div>
+        </section>
+
+        <!-- Show blockchain -->
+        <section class="block">
+            <h2>Show Blockchain</h2>
+            <div class="box"></div>
+        </section>
+
+        <!-- Check current owner -->
+        <section class="block">
+            <h2>Check the current owner</h2>
+            <div class="box">
+                <div class="input-box">
+                    <label for="checkArtId">Art Id</label>
+                    <div class="row">
+                        <input id="checkArtId" type="text" required placeholder="Put Art Id...">
+                        <button id="checkBtn" class="button">Check</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="input-box">
+                    <label for="currentOwner">Current Owner</label>
+                    <input id="currentOwner" type="text" value="" disabled>
+                </div>
+            </div>
+        </section>
+
+    </div>
 </body>
 </html>
