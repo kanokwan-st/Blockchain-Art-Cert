@@ -40,6 +40,15 @@ class Blockchain {
         );
         this.chain.push(newBlock);
     }
+
+    isValidOwner(artId, previousOwner) {
+        for (let i = this.chain.length - 1; i >= 0; i--) {
+            const block = this.chain[i];
+            if (block.data.artId === artId) {
+                return block.data.owner === previousOwner || block.data.to === previousOwner;
+            }
+        }
+    }
 }
 
 export { Blockchain };

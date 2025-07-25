@@ -34,9 +34,17 @@ app.post('/api/create', (req, res) => {
 // Transfer ownership
 app.post('/api/transfer', (req, res) => {
     const { artId, previousOwner, newOwner } = req.body;
+
+    if (!chain.isValidOwner(artId, previousOwner)) {
+        return (
+            res.status(400).json({ success: false, message: "Previous owner does not match." })
+        )
+    };
+
     const transferData = transferArtCert(artId, previousOwner, newOwner);
     chain.addBlock(transferData);
-    res.json({ success: true });
+
+    res.json({ success: true, message: "Transferring is success." });
 })
 
 app.listen(PORT, () =>
