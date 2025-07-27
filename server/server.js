@@ -47,6 +47,23 @@ app.post('/api/transfer', (req, res) => {
     res.json({ success: true, message: "Transferring is success." });
 })
 
+// Check current owner
+app.post('/api/check/owner', (req, res) => {
+    const { artId } = req.body;
+
+    if (!artId) {
+        return res.json({ success: false, message: "Art ID is required."});
+    };
+
+    const latestOwner = chain.checkLatestOwner(artId);
+
+    if (latestOwner) {
+        return res.json({ success: true, latestOwner });
+    } else {
+        return res.json({ success: false, message: "Cannot find owner for this Art ID."});
+    }
+})
+
 app.listen(PORT, () =>
   console.log(`Server is running at http://localhost:${PORT}`)
 );

@@ -10,11 +10,17 @@ createCertBtn.addEventListener("click", async () => {
     const artist = document.getElementById("artist");
     const owner = document.getElementById("owner");
 
+    // Verify input value
+    if (!title.value.trim() || !artist.value.trim() || !owner.value.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     // Get value from input
     const certData = {
-      title: title.value,
-      artist: artist.value,
-      owner: owner.value,
+      title: title.value.trim(),
+      artist: artist.value.trim(),
+      owner: owner.value.trim(),
     };
 
     // Send certificate data to server
@@ -57,11 +63,17 @@ transferBtn.addEventListener("click", async () => {
     const previousOwner = document.getElementById("previousOwner");
     const newOwner = document.getElementById("newOwner");
 
+    // Verify input value
+    if (!artId.value.trim() || !previousOwner.value.trim() || !newOwner.value.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     // Get value from input
     const transferData = {
-      artId: artId.value,
-      previousOwner: previousOwner.value,
-      newOwner: newOwner.value,
+      artId: artId.value.trim(),
+      previousOwner: previousOwner.value.trim(),
+      newOwner: newOwner.value.trim(),
     };
 
     // Send transfer data to server
@@ -80,3 +92,32 @@ transferBtn.addEventListener("click", async () => {
   }
 });
 
+//------------------ Check current owner ------------------//
+const checkOwnerBtn = document.getElementById("checkOwnerBtn");
+
+checkOwnerBtn.addEventListener("click", async () => {
+  try {
+    // Get art Id from input
+    const checkArtId = document.getElementById("checkArtId");
+    const artId = checkArtId.value.trim();
+
+    const id = { artId };
+
+    // Send art Id to server
+    const response = await axios.post(`${API_URL}/api/check/owner`, id);
+    let owner = response.data.latestOwner;
+
+    if (!owner) {
+      const message = response.data.message;
+      alert(message);
+      owner = "";
+    }
+
+    // Display owner
+    const currentOwner = document.getElementById("currentOwner");
+    currentOwner.value = owner;
+  } catch (err) {
+    console.log("Error checking owner", err);
+    alert("Failed to check owner");
+  }
+});
