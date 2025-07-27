@@ -58,6 +58,10 @@ h2 {
     max-height: 290px;
     overflow: auto;
 }
+.blockchain-box {
+    color: #2b049f;
+    font-size: 13px;
+}
 .input-box {
     display: flex;
     flex-direction: column;
