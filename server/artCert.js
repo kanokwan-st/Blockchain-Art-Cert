@@ -6,8 +6,7 @@ function createArtCert(title, artist, owner) {
         artId: uuidv4(),
         title,
         artist,
-        owner,
-        createdAt: new Date().toISOString()
+        owner
     };
 }
 
@@ -16,8 +15,7 @@ function transferArtCert(artId, previousOwner, newOwner) {
         type: "TRANSFER",
         artId,
         from: previousOwner,
-        to: newOwner,
-        transferred: new Date().toISOString()
+        to: newOwner
     };
 }
 

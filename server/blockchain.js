@@ -23,7 +23,7 @@ class Blockchain {
     }
 
     createGenesisBlock() {
-        return new Block(0, Date.now().toString(), { message: "Genesis Block" }, "0");
+        return new Block(0, new Date().toISOString(), { message: "Genesis Block" }, "0");
     }
 
     getLatestBlock() {
@@ -34,7 +34,7 @@ class Blockchain {
         const prevBlock = this.getLatestBlock();
         const newBlock = new Block(
             prevBlock.index + 1,
-            Date.now().toString(),
+            new Date().toISOString(),
             data,
             prevBlock.hash,
         );

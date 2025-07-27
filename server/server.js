@@ -35,9 +35,10 @@ app.post('/api/create', (req, res) => {
 app.post('/api/transfer', (req, res) => {
     const { artId, previousOwner, newOwner } = req.body;
 
+    // Check if previous owner match with art ID
     if (!chain.isValidOwner(artId, previousOwner)) {
         return (
-            res.status(400).json({ success: false, message: "Previous owner does not match." })
+            res.status(400).json({ success: false, message: "Previous owner does not match the Art ID." })
         )
     };
 

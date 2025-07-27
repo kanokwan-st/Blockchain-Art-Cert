@@ -88,7 +88,12 @@ transferBtn.addEventListener("click", async () => {
     newOwner.value = "";
   } catch (err) {
     console.log("Error transfering owner", err);
-    alert("Failed to transfer owner");
+    
+    if (err.response && err.response.data.message) {
+        alert(err.response.data.message);
+    } else {
+        alert("Unexpected error occurred.");
+    };
   }
 });
 
