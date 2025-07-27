@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://blockchain-art-cert.onrender.com/";
 
 //------------------ Create Certificate ------------------//
 const createCertBtn = document.getElementById("createCertBtn");
